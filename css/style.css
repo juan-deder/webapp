@@ -1,0 +1,332 @@
+*{box-sizing:border-box;}
+body{
+	background:black;
+	margin:0;
+	font-family:Tahoma;
+}
+a:hover, button:hover{cursor:pointer;}
+a{text-decoration:none;}
+header{
+	background:whitesmoke;
+}
+.mainHeader{
+	width:50%;
+	margin:auto;
+	color:dimgray;
+	padding:1% 0;
+	text-shadow:1px 1px black, 1px 0 black, 0 1px black, 2px 2px white,
+	0 2px white, 2px 0 white, -1px -1px white, -1px 0 white,
+	0 -1px white, -1px 2px white, 2px -1px white, .5px .5px 5px rgb(255, 40, 0),
+	.5px .5px 5px rgb(255, 40, 0), .5px .5px 5px rgb(255, 40, 0), .5px .5px 5px rgb(255, 40, 0),
+	0 0 40px rgb(255, 100, 0);
+}
+nav{
+	background:lightgray;
+}
+nav > div{
+	display:inline-block;
+	font-size:0;
+}
+.formLinks{
+	float:right;
+}
+.navLink{
+	position:relative;
+	display:inline-block;
+	font-size:16px;
+	border-radius:10px;
+	background:darkgray;
+	color:white;
+	letter-spacing: 2px;
+	padding-right:5px;
+	height:34px;
+	transition:background .2s;
+}
+.navLink:hover{
+	background:gray;
+}
+.active{
+	background:rgb(255, 115, 0);
+}
+.navLink > i{
+	text-shadow:1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.navLink > i:first-child{
+	line-height:2;
+	margin:0 5px;
+}
+.navSubMenuLink{
+	transition:background .2s ease-in .2s, border-radius .2s ease-in .2s;
+}
+.navSubMenuLink:hover{
+	border-radius:15px 15px 0 0;
+	transition:background .2s ease-out, border-radius .2s ease-out;
+}
+.navSubMenuLink > i.fa-caret-right{
+	vertical-align:middle;
+	font-size:200%;
+	margin-left:5px;
+	transition:transform .2s ease-in .2s;
+}
+.navSubMenuLink:hover > i.fa-caret-right{
+	transform:translate(-12.5%, 12.5%) rotateZ(90deg);
+	transition:transform .2s ease-out;
+}
+.navSubMenu{
+	position:absolute;
+	left:-2px;
+	z-index:-1;
+	width:100%;
+	background:gray;
+	box-sizing: content-box;
+	border-width:2px;
+	border-style:none solid solid;
+	border-color:lightgray;
+	transform:translate(0, -100%);
+	cursor:auto;
+	transition:transform .2s ease-out;
+}
+.navSubMenuLink:hover > .navSubMenu{
+	transform:translate(0, 0);
+	transition:transform .2s ease-in .2s;
+}
+nav > div > div{
+	font-size:16px;
+	position:relative;
+	display:inline-block;
+}
+.navFormLink{
+	background:white;
+	color:rgb(255, 115, 0);
+}
+.navFormLink > i{
+	color:rgb(255, 115, 0);
+}
+.navLink:not([class*="Sub"])::after{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:white;
+	opacity:0;
+	border-radius:10px;
+	transition:all .2s;
+}
+.navLink:not([class*="Sub"]):active::after{
+	top:50%;
+	left:50%;
+	width:0;
+	height:0;
+	opacity:1;
+	transition:0s;
+}
+.nF{
+	position:absolute;
+	right:0;
+	top:30px;
+	z-index:-1;
+	background:whitesmoke;
+	text-shadow:none;
+	letter-spacing:0;
+	width:25vw;
+	border:3px solid darkgray;
+	border-radius:15px;
+	padding:20px 20px 30px;
+	color:rgb(77, 77, 77);
+	transform:translate(0, -100%);
+	margin-top:0;
+	transition:transform .3s, margin-top .3s;
+}
+.nF::after, .nF::before{
+	position:absolute;
+	bottom:100%;
+	right:27px;
+	content:'';
+}
+.nF::after{
+	margin-right:5px;
+	border:15px solid;
+	border-color:transparent transparent rgb(255, 115, 0) transparent;
+}
+.nF::before{
+	border:20px solid;
+	border-color:transparent transparent darkgray transparent;
+}
+.nF button:focus, .nF input:focus{
+	outline:none;
+}
+.closingX{
+	position:absolute;
+	right:-3px;
+	top:-3px;
+	border:3px solid darkgray;
+	border-radius:0 15px 0 15px;
+	font-size:125%;
+	background:linear-gradient(to left top, gray, lightgray);
+	color:rgb(255, 115, 0);
+	text-shadow:0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+	transition:color .2s;
+}
+.closingX:hover{
+	color:white;
+}
+.nF > h3{
+	margin:0 0 15px;
+}
+.inputGroup{
+	position:relative;
+	margin-bottom:5px;
+}
+.nF > button[name], .inputGroup > input{
+	width:100%;
+	height:40px;
+
+	border:none;
+	transition:border-radius .2s, border-bottom .2s, box-shadow .2s, background .2s;
+}
+.inputGroup > i{
+	position:absolute;
+	top:0;
+	left:0;
+	height: 40px;
+	font-size:125%;
+	background:darkgray;
+	z-index:1;
+	line-height:37px;
+	width:30px;
+	text-align:center;
+	border-bottom:3px solid rgb(255, 115, 0);
+	color:white;
+	text-shadow:0 0 1px black ,0 0 1px black ,0 0 1px black;
+	transition:border-radius .2s, border-bottom .2s;
+}
+.inputGroup > input{
+	box-shadow:0 0 1px black;
+	padding:0 50px 0 40px;
+	font-size:16px;
+	border-bottom:3px solid rgb(255, 115, 0);
+}
+.inputGroup > input:focus{
+	border-radius:15px 0 0 15px;
+	box-shadow:0 0 10px black;
+	border-bottom:3px solid dodgerblue;
+}
+.inputGroup > input:focus ~ i{
+	border-radius:15px 0 0 15px;
+	border-bottom:3px solid dodgerblue;
+}
+.nF > button[name]{
+	border-radius:5px;
+	font-weight:bold;
+	color:white;
+	font-size:150%;
+	text-shadow:1px 1px black, 1px 0 black, 0 1px black;
+	background:linear-gradient(to top, gray, lightgray);
+	box-shadow:0 5px dimgray, 0 7px 5px gray;
+	transition:transform .1s, box-shadow .1s;
+}
+.nF > button[name]:active{
+	box-shadow:none;
+	transform:translate(0, 5px);
+}
+/* Register form */
+.inputState{
+	position:absolute;
+	top:0;
+	right:0;
+	width:40px;
+	height:40px;
+	background:white;
+	box-shadow:-1px 0 gray;
+	background:gainsboro;
+}
+.inputState::after{
+	content:'';
+	background:white;
+	position:absolute;
+	width:25px;
+	height:25px;
+	border:2px solid darkgray;
+	border-radius:5px;
+	box-sizing:border-box;
+	top:7.5px;
+	left:7.5px;
+}
+.inputState > i{
+	display:inline-block;
+	position:absolute;
+	z-index:1;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+.editState{
+	font-size:100%;
+	color:gray;
+}
+.inputMessageBox{
+	position:absolute;
+	top:50%;
+	right:100%;
+	margin-right:15px;
+	transform:translate(0, -50%);
+	width:200px;
+	height:100px;
+	background:white;
+	border-radius:20%;
+	border:2px solid dimgray;
+	box-shadow:2px 2px darkgray, 2px -2px darkgray, -2px 2px darkgray, -2px -2px darkgray;
+	word-wrap:break-word;
+}
+.inputMessageBox::after{
+	content:'';
+	position:absolute;
+	top:50%;
+	left:100%;
+	transform:translate(0, -50%);
+	border:10px solid;
+	border-color:transparent transparent transparent dimgray;
+}
+/* Log in form */
+.inputInfo{
+	color:rgb(77, 77, 77);
+	font-size:90%;
+	padding-bottom:15px;
+	border-bottom:1px solid gray;
+	margin-bottom:15px;
+}
+.inputInfo > i{
+	margin-right:5px;
+	transform:scale(1.5);
+	color:dimgray;
+	text-shadow:1px 1px rgb(255, 115, 0), 1px 0 rgb(255, 115, 0), 0 1px rgb(255, 115, 0);
+}
+.helpButton{
+	margin-top:5px;
+	color:rgb(40, 40, 40);
+	padding:5px;
+	border-radius:3px;
+	border:2px outset rgb(255, 155, 0);
+	color:white;
+	background:linear-gradient(to left top, rgb(255, 115, 0), rgb(255, 155, 0));
+	transition:background .2s, border .2s, color .2s;
+}
+.helpButton:hover{
+	border:2px outset rgb(255, 115, 0);
+	color:white;
+	background:linear-gradient(to left top, rgb(255, 80, 0), rgb(255, 115, 0));
+}
+.helpButton:active{
+	transition:0s;
+	border:2px inset rgb(255, 115, 0);
+	background:linear-gradient(to left top, rgb(255, 115, 0), rgb(255, 80, 0));
+}
+footer{
+	position:absolute;
+	bottom:0;
+	padding:2%;
+	background:lightgray;
+	width:100%;
+}
